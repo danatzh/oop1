@@ -13,4 +13,19 @@ public class user {
     public void printInfo() {
         System.out.println("user "+username+", age "+ age);
     }
+    @Override
+    public String toString() {
+        return "User " + username + ", age " + age;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof user)) return false;
+        user user = (user) o;
+        return age == user.age && username.equals(user.username);
+    }
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(username, age);
+    }
 }

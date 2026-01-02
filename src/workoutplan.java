@@ -13,4 +13,19 @@ public class workoutplan{
     public void printInfo(){
         System.out.println("workout"+name+", duration"+duration+"minutes");
     }
+    @Override
+    public String toString() {
+        return "Workout " + name + ", duration " + duration + " minutes";
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof workoutplan)) return false;
+        workoutplan that = (workoutplan) o;
+        return duration == that.duration && name.equals(that.name);
+    }
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(name, duration);
+    }
 }
