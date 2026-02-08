@@ -1,6 +1,9 @@
 package com.example.fitnesstracker;
 
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,8 +23,19 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable int id) throws SQLException {
+    public String deleteUser(@PathVariable("id") int id) throws SQLException {
         UserDAO.deleteUser(id);
         return "User deleted";
     }
+
+    @PutMapping("/{id}")
+    public String updateWeight(
+            @PathVariable("id") int id,
+            @RequestParam("weight") double weight) throws SQLException {
+
+        UserDAO.updateUserWeight(id, weight);
+        return "Weight updated";
+    }
+
+
 }

@@ -8,13 +8,15 @@ public class User {
     private int age;
     private double weight;
 
+    public User() {
+    }
+
     public User(int userId, String name, int age, double weight) {
         this.userId = userId;
         this.name = name;
         this.age = age;
         this.weight = weight;
     }
-
 
     public int getUserId() {return userId;}
 
